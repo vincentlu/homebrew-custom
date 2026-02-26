@@ -18,7 +18,6 @@ class Emacs < Formula
   depends_on "gmp"
   depends_on "gnutls"
   depends_on "tree-sitter@0.25"
-  #depends_on "imagemagick"
 
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
@@ -77,11 +76,7 @@ class Emacs < Formula
       exec "#{prefix}/Emacs.app/Contents/MacOS/Emacs" "$@"
     EOS
 
-    # Follow MacPorts and don't install ctags from Emacs. This allows Vim
-    # and Emacs and ctags to play together without violence.
-    # Not needed with --with-ns as ctags is not installed to bin/
-    #(bin/"ctags").unlink
-    #(man1/"ctags.1.gz").unlink
+    # ctags unlinking not needed with --with-ns as ctags is not installed to bin/
   end
 
   service do
