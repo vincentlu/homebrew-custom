@@ -27,6 +27,15 @@ brew update
 brew upgrade vincentlu/custom/emacs
 ```
 
+#### Differences from upstream
+
+| Aspect | Upstream | Custom |
+|--------|----------|--------|
+| `--with-ns` / `--without-ns` | `--without-ns` (terminal-only) | `--with-ns` (builds macOS Cocoa GUI) |
+| Emacs.app install | no | `prefix.install "nextstep/Emacs.app"` |
+| `bin/emacs` | standard binary from `make install` | shell wrapper that execs `Emacs.app/Contents/MacOS/Emacs` |
+| ctags cleanup | unlinks `bin/ctags` and `man1/ctags.1.gz` | skipped (not needed with `--with-ns`) |
+
 ## License
 
 Formulae are derived from [Homebrew/homebrew-core](https://github.com/Homebrew/homebrew-core) and licensed under the [BSD-2-Clause](LICENSE) license.
